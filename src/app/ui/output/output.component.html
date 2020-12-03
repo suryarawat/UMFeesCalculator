@@ -1,0 +1,34 @@
+<div class="output">
+
+  <table>
+
+    <tr>
+      <th>Program Name</th>
+      <th>Number of Courses</th>
+      <th>Fees</th>
+    </tr>
+    <ng-container *ngFor="let program of programs">
+      <tr *ngIf="program.getName !== ''"  class="programItem">
+        <td>{{program.getName}}</td>
+        <td>{{program.getQuantity}}</td>
+        <td>${{program.getFees}}</td>
+      </tr>
+    </ng-container>
+
+    <ng-container *ngFor="let extraFees of calculator.getOtherTermFees">
+      <tr *ngIf="extraFees !== null && extraFees.message !== ''">
+        <td>{{extraFees.message}}</td>
+        <td></td>
+        <td>${{extraFees.fees}}</td>
+      </tr>
+    </ng-container>
+
+    <tr style="background-color: #a09e9e">
+      <td>Total</td>
+      <td></td>
+      <td>${{calculator.getTotalFees}}</td>
+    </tr>
+
+  </table>
+
+</div>

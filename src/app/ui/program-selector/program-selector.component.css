@@ -1,0 +1,39 @@
+.arranged{
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+}
+
+.items{
+  position: relative;
+  margin: 0 5px;
+}
+
+/*.mat-input-element{*/
+/*  color: white;*/
+/*}*/
+
+/*.mat-select-value-text{*/
+/*  color: white;*/
+/*}*/
+/*.mat-select-arrow{*/
+/*  color: white;*/
+/*}*/
+
+/*.mat-form-field-label{*/
+/*  color: white;*/
+/*}*/
+/*.mat-select-value{*/
+/*  color: white;*/
+/*}*/
+/*.inputItem.mat-select-trigger.mat-select-value.mat-select-value-text{*/
+/*  color: white!important;*/
+/*}*/
+button{
+  margin:8px 0;
+}
+@media screen and (max-width: 952px) {
+  .arranged{
+    flex-direction: column;
+  }
+}

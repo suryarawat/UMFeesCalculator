@@ -1,0 +1,32 @@
+<div class="toolbar" role="banner">
+  <div style="margin-left: 1em">Calculate your University of Manitoba fees quick and easy</div>
+</div>
+
+<div class="content" role="main">
+
+  <div class="arranged">
+    <div style="margin: 20px 5px 0px; height: fit-content">
+      <mat-checkbox (change)="setInternational = $event.checked">International student</mat-checkbox>
+    </div>
+    <div style="margin: 0 5px; height: fit-content">
+      <mat-form-field appearance="outline">
+        <mat-label>Select the term</mat-label>
+        <mat-select class="termClass" matInput placeholder="Select term" [(value)] = "term" [formControl]="termSelector" (valueChange)="setTerm = $event">
+          <mat-option [value]="termValues[0]">Fall</mat-option>
+          <mat-option [value]="termValues[1]">Winter</mat-option>
+          <mat-option [value]="termValues[2]">Summer</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <button mat-raised-button (click)="addProgram('', 0)" style="margin-bottom: 15px">add a new program</button>
+
+  <app-program-selector *ngFor="let program of programObjs" (removeProgram)="removeProgram(program)" [currentProgram]="program"></app-program-selector>
+
+  <mat-divider style="margin: 10px 0;"></mat-divider>
+  <div><b>Fees Calculation</b></div>
+
+  <app-output></app-output>
+</div>
+
+

@@ -12,7 +12,7 @@ Fine Arts					$159.72	$610.52
 Health Sciences (Interdisciplinary Health)	$146.86	$561.24
 Kinesiology & Recreation Management		$152.14	$581.50
 Management - Asper School of Business		$174.20	$665.80
-Medicine (Family Social Sciences)    		$146.86    	$561.24
+Medicine (Family Social Sciences)    		$146.86 $561.24
 Medicine (Other*)				$185.96	$724.42
 Music						$145.72	$567.66
 Nursing						$151.84	$561.72
