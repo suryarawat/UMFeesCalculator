@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from 
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {startWith, map} from 'rxjs/operators';
-import {programsList} from '../../objects/programs';
+import {programsList} from '../../../variables';
 import {ErrorStateMatcher} from '@angular/material/core';
 import {ProgramObject} from '../../objects/ProgramObject';
 
@@ -55,11 +55,13 @@ export class ProgramSelectorComponent implements OnInit {
       const filteredVal = this._normalizeValue(val);
       const found = this.programs.find( programName => this._normalizeValue(programName) === (filteredVal));
       this.curr.setName = found !== undefined ? found : '';
+      this.curr.initOrUpdateExtras();
     });
   }
   onChangeCount(): void{
     this.instancesControl.valueChanges.subscribe(val => {
       this.curr.setQuantity = val;
+      this.curr.initOrUpdateExtras();
     });
   }
 
@@ -67,6 +69,7 @@ export class ProgramSelectorComponent implements OnInit {
     this.creditsControl.valueChanges.subscribe( val => {
       this.credits = val;
       this.curr.setCredits = val;
+      this.curr.initOrUpdateExtras();
     });
   }
 

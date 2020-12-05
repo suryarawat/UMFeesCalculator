@@ -24,7 +24,7 @@ programsList.set('Social Work', [[158.74, 587.22], [1.85, -1], [0.70, -1]]);
 // export let isInternational: boolean;
 // export let FSW: string;
 
-export const healthInsInternational = [332, 664, 332];
+export const healthInsInternational = [332, 664];
 export const stJhonless9 = 5;
 export const stJhonmore9 = 10;
 export const stPaulMemb = 7;

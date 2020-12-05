@@ -1,5 +1,5 @@
-import {programsList} from './programs';
-import {MiscFeesObject} from './Misc-fees-object';
+import {programsList} from '../../variables';
+import {Extra} from './Extra';
 
 export class ProgramObject{
   static isInternational: boolean;
@@ -9,7 +9,8 @@ export class ProgramObject{
   fees: number;
   feePerCourse: number[];
   credits: number;
-  otherFees: MiscFeesObject;
+  otherFees: Array<Extra> = [{message: 'Endowment fees', fees: 0}, {message: 'Student organisation fees', fees: 0}];
+
   constructor(name: string, quantity: number) {
     this.fees = 0;
     this.name = name;
@@ -17,6 +18,24 @@ export class ProgramObject{
     this.credits = 3;
     const tempList = programsList.get(name);
     this.feePerCourse = tempList === undefined ? undefined : tempList[0];
+  }
+
+  initOrUpdateExtras(): void{
+    if ((this.name !== undefined && this.name !== '') && (this.quantity !== undefined && this.quantity !== 0)){
+      let endFees = programsList.get(this.name)[1][0];
+      endFees = endFees * (this.quantity !== undefined ? this.quantity * this.credits : 0)
+      endFees = Math.round((endFees) * 100) / 100;
+      this.otherFees[0] = {message: 'Endowment fees', fees: endFees};
+
+      let orgFees = programsList.get(this.name)[2][0];
+      orgFees = orgFees * (this.quantity !== undefined ? this.quantity * this.credits : 0)
+      orgFees = Math.round((orgFees) * 100) / 100;
+      this.otherFees[1] = {message: 'Student organisation fees', fees: orgFees};
+    }
+  }
+
+  get getExtras(): Extra[]{
+    return this.otherFees;
   }
 
   get getName(): string{

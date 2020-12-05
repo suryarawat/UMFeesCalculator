@@ -43,7 +43,7 @@ export class AppComponent implements OnInit{
   }
 
   removeProgram(program: ProgramObject): void{
-    if ( this.programObjs.length > 1) {
+    if ( this.programObjs.length > 0) {
       const index: number = this.programObjs.indexOf(program);
       this.programObjs.splice(index, 1);
       this.calculator.setPrograms = this.programObjs;

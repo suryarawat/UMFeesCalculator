@@ -8,11 +8,20 @@
       <th>Fees</th>
     </tr>
     <ng-container *ngFor="let program of programs">
-      <tr *ngIf="program.getName !== ''"  class="programItem">
+      <tr *ngIf="program.getName !== ''"  class="startBorder">
         <td>{{program.getName}}</td>
         <td>{{program.getQuantity}}</td>
         <td>${{program.getFees}}</td>
       </tr>
+      <ng-container *ngIf="programs.indexOf(program) >= 0 && program.getExtras !== undefined">
+        <ng-container *ngFor="let extra of program.getExtras">
+          <tr *ngIf="extra.message !== ''" [style.border-bottom]="program.getExtras.indexOf(extra) === program.getExtras.length - 1 ? 'solid' : 'none'" [style.border-width.px]="'1'">
+            <td>{{extra.message}}</td>
+            <td></td>
+            <td>${{extra.fees}}</td>
+          </tr>
+        </ng-container>
+      </ng-container>
     </ng-container>
 
     <ng-container *ngFor="let extraFees of calculator.getOtherTermFees">
