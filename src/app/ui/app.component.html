@@ -1,8 +1,9 @@
 <div class="toolbar" role="banner">
-  <div style="margin-left: 1em">Calculate your University of Manitoba fees quick and easy</div>
+  <div class="title">Calculate your University of Manitoba fees quick and easy</div>
 </div>
 
 <div class="content" role="main">
+  <h3 style="text-align: center">Get quick estimates of your University of Manitoba fees without the hassle of adding and dropping courses on aurora.</h3>
 
   <div class="arranged">
     <div style="margin: 20px 5px 0px; height: fit-content">
@@ -19,12 +20,12 @@
       </mat-form-field>
     </div>
   </div>
-  <button mat-raised-button (click)="addProgram('', 0)" style="margin-bottom: 15px">add a new program</button>
+  <button mat-raised-button (click)="addProgram('', 0)" style="margin-bottom: 15px; background-color:#ffc955">Add a new Program/Faculty</button>
 
   <app-program-selector *ngFor="let program of programObjs" (removeProgram)="removeProgram(program)" [currentProgram]="program"></app-program-selector>
 
   <mat-divider style="margin: 10px 0;"></mat-divider>
-  <div><b>Fees Calculation</b></div>
+  <div style="font-weight: 500">Fees Calculation</div>
 
   <app-output></app-output>
 

@@ -24,3 +24,7 @@ table td:first-of-type, th:first-of-type{
   border-left: none;
   padding: 2px 5px;
 }
+
+th{
+  font-weight: 500;
+}

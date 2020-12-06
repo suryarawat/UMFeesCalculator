@@ -2,7 +2,7 @@
     <div class="arranged">
       <div class="items">
         <mat-form-field>
-          <mat-label>Search for the name of your program</mat-label>
+          <mat-label>Program/Faculty Name</mat-label>
           <input
                  matInput
                  [formControl]="programControl"
@@ -17,7 +17,7 @@
 
       <div class="items">
         <mat-form-field>
-          <mat-label>Number of courses taken from this program</mat-label>
+          <mat-label>Number of courses</mat-label>
           <mat-select class="inputItem" matInput [formControl]="instancesControl" [errorStateMatcher]="matcher">
             <mat-option *ngFor="let number of numbers" value="{{number}}">{{number}}</mat-option>
           </mat-select>
